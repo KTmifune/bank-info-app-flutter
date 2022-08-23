@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:user_bank_info_app_flutter/data/model/user.dart';
 import 'package:user_bank_info_app_flutter/data/model/user_bank_info_detail.dart';
@@ -17,23 +16,15 @@ class Repository {
       }
       final resultBody =
           const Utf8Decoder(allowMalformed: true).convert(result.bodyBytes);
-      //return User.fromJson(jsonDecode(body));
       final List jsonResult = jsonDecode(resultBody);
 
       final List<User> userList = [];
-      // final userList = jsonResult.map((e) {
-      //   return User(id: e['id'], name: e['name'], accountIds: e['account_ids']);
-      // });
       for (var e in jsonResult) {
         userList.add(
             User(id: e['id'], name: e['name'], accountIds: e['account_ids']));
       }
 
       return userList;
-      // final body =
-      //     const Utf8Decoder(allowMalformed: true).convert(result.bodyBytes);
-      // return AstronomyData.fromJson(jsonDecode(body));
-
     } catch (error) {
       throw "実行エラー：$error";
     }
@@ -49,13 +40,9 @@ class Repository {
       }
       final resultBody =
           const Utf8Decoder(allowMalformed: true).convert(result.bodyBytes);
-      //return User.fromJson(jsonDecode(body));
       final List jsonResult = jsonDecode(resultBody);
 
       final List<UserBankInfoDetail> userBankInfoList = [];
-      // final userList = jsonResult.map((e) {
-      //   return User(id: e['id'], name: e['name'], accountIds: e['account_ids']);
-      // });
       for (var e in jsonResult) {
         userBankInfoList.add(UserBankInfoDetail(
             id: e['id'],
@@ -63,7 +50,6 @@ class Repository {
             name: e['name'],
             balance: e['balance']));
       }
-
       return userBankInfoList;
     } catch (error) {
       throw "実行エラー：$error";

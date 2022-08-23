@@ -5,7 +5,6 @@ import 'package:user_bank_info_app_flutter/data/repogitory.dart';
 import 'package:user_bank_info_app_flutter/screen/user_bank_info_detail_screen.dart';
 
 final userListProvider = FutureProvider<List<User>>((ref) async {
-  //final List<User> data = await Repository().fetchUserList();
   final data = await Repository().fetchUserList();
   return data;
 });
