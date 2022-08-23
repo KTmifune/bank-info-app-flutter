@@ -45,7 +45,6 @@ class UserBankInfoDetailScreen extends ConsumerWidget {
     for (var element in bankInfo) {
       totalBalance += element.balance;
     }
-    NumberFormat("#,###.0");
 
     return Center(
       child: Padding(
